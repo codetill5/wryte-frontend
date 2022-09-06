@@ -32,7 +32,7 @@ const MobileMenu = ({menuShow, menuHide}) => {
                         width={141}
                         height={37}
                         src={colorMode === "Dark" ? "/images/logo/logo-white2.webp" : "/images/logo/logo-black.webp" }
-                        alt="Blogar logo"
+                        alt="wryte"
                         />
                     </a>
                 </Link>
