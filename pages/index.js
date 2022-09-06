@@ -1,13 +1,8 @@
-import HeadTitle from "../components/header/HeadTitle";
-import FooterOne from "../components/footer";
-import HeaderOne from "../components/header";
+import React from "react";
 
 const HomeDefault = () => {
   return (
     <>
-      <HeadTitle pageTitle="Home Default" />
-      <HeaderOne />
-      <FooterOne />
     </>
   );
 };
