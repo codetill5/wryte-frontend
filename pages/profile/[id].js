@@ -1,18 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
+
 import PostContainerOne from "../../components/posts/PostContainerOne";
 import Sidebar from "../../components/Sidebar";
 
-// import { getAllPosts } from "../../../lib/api";
-// import InstagramOne from "../../common/components/instagram/InstagramOne";
-// import FooterOne from "../../common/elements/footer/FooterOne";
-// import HeaderOne from "../../common/elements/header/HeaderOne";
-// import PostLayoutTwo from "../../common/components/post/layout/PostLayoutTwo";
-// import SidebarOne from "../../common/components/sidebar/SidebarOne";
-// import { slugify } from "../../common/utils";
-// import HeadTitle from "../../common/elements/head/HeadTitle";
-
-const AuthorArchive = ({ authorData, allPosts }) => {
+const Profile = () => {
   return (
     <>
       <div className="axil-author-area axil-author-banner bg-color-grey">
@@ -75,10 +67,8 @@ const AuthorArchive = ({ authorData, allPosts }) => {
           </div>
         </div>
       </div>
-      {/* <InstagramOne parentClass="bg-color-grey" /> */}
-      {/* <FooterOne /> */}
     </>
   );
 };
 
-export default AuthorArchive;
+export default Profile;
