@@ -5,17 +5,12 @@ import Link from "next/link";
 import MobileMenu from "./MobileMenu";
 import Nav from "./Nav";
 
-const HeaderOne = () => {
-  if (typeof window !== "undefined") {
-    var colorMode = window.localStorage.getItem("color-mode");
-  }
-
+const Header = () => {
   const [showMMenu, SetShowMMenu] = useState(false);
+  const [togglaClass, setTogglaClass] = useState(false);
 
   const MobileShowHandler = () => SetShowMMenu(true);
   const MobileHideHandler = () => SetShowMMenu(false);
-
-  const [togglaClass, setTogglaClass] = useState(false);
 
   const toggleHandler = () => {
     setTogglaClass((active) => !active);
@@ -32,9 +27,10 @@ const HeaderOne = () => {
                   <a>
                     <Image
                       className="dark-logo"
-                      width={141}
-                      height={37}
-                      src="/assets/logo.png"
+                      width={500}
+                      height={150}
+                      objectFit="cover"
+                      src="/assets/gifLogo.gif"
                       alt="wryte logo"
                     />
                   </a>
@@ -48,12 +44,17 @@ const HeaderOne = () => {
                 </nav>
               </div>
             </div>
+
             <div className="col-xl-3 col-lg-8 col-md-8 col-sm-9 col-12">
               <div className="header-search text-end d-flex align-items-center">
                 <form className="header-search-form d-sm-block d-none">
                   <div className="axil-search form-group">
                     <button type="submit" className="search-button">
-                      <i className="fal fa-search" />
+                      <img
+                        src="/assets/icons/search.svg"
+                        alt="search"
+                        style={{ height: "20px", width: "20px" }}
+                      />
                     </button>
                     <input
                       type="text"
@@ -90,14 +91,22 @@ const HeaderOne = () => {
                   <li className="icon">
                     <Link href="#">
                       <a>
-                        <i className="fas fa-bookmark" />
+                        <img
+                          src="/assets/icons/bookmark.svg"
+                          alt="bookmark"
+                          style={{ height: "20px", width: "20px" }}
+                        />
                       </a>
                     </Link>
                   </li>
                   <li className="icon">
                     <Link href="#">
                       <a>
-                        <i className="fas fa-bell" />
+                        <img
+                          src="/assets/icons/notification.svg"
+                          alt="notification"
+                          style={{ height: "20px", width: "20px" }}
+                        />
                       </a>
                     </Link>
                   </li>
@@ -107,8 +116,8 @@ const HeaderOne = () => {
                         <Image
                           width={40}
                           height={40}
-                          src="/images/others/author.webp"
-                          alt="Author Images"
+                          src="/assets/randomProfile.png"
+                          alt="profile"
                         />
                       </a>
                     </Link>
@@ -133,4 +142,4 @@ const HeaderOne = () => {
   );
 };
 
-export default HeaderOne;
+export default Header;
