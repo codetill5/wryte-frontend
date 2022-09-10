@@ -4,6 +4,7 @@ import Image from "next/image";
 import PostContainerOne from "../../components/posts/PostContainerOne";
 import Sidebar from "../../components/Sidebar";
 
+
 const Profile = () => {
   return (
     <>
@@ -38,8 +39,8 @@ const Profile = () => {
                         like this daughter up top, makes me so proud of how far
                         I’ve come, and so thankful for where I come from.
                       </p>
-                      <ul className="social-share-transparent size-md">
-                        icons
+                      <ul className="social-share-transparent size-md authorSocialIcons">
+                      {/* <FaIcon icon="camera-retro" size="lg" /> */}
                       </ul>
                     </div>
                   </div>
@@ -49,6 +50,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      {/* <FaBeer /> */}
 
       <div className="axil-post-list-area axil-section-gap bg-color-white">
         <div className="container">

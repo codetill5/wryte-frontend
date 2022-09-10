@@ -5,9 +5,6 @@ const Nav = () => {
   return (
     <ul className="mainmenu">
       <li className="menu-item-has-children">
-        <a href="#">Home</a>
-      </li>
-      <li className="menu-item-has-children">
         <Link href="/">
           <a>Posts</a>
         </Link>
@@ -15,17 +12,17 @@ const Nav = () => {
 
       <li className="menu-item-has-children">
         <Link href="/">
-          <a>Pages</a>
+          <a>About</a>
         </Link>
       </li>
       <li>
         <Link href="/lifestyle-blog">
-          <a>Lifestyle</a>
+          <a>Litepaper</a>
         </Link>
       </li>
       <li>
         <Link href="/tech-blog">
-          <a>Gadgets</a>
+          <a>Contact</a>
         </Link>
       </li>
     </ul>

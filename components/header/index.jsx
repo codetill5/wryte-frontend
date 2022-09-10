@@ -5,6 +5,7 @@ import Link from "next/link";
 import MobileMenu from "./MobileMenu";
 import Nav from "./Nav";
 
+
 const Header = () => {
   const [showMMenu, SetShowMMenu] = useState(false);
   const [togglaClass, setTogglaClass] = useState(false);
@@ -68,7 +69,11 @@ const Header = () => {
                     className="search-button-toggle"
                     onClick={toggleHandler}
                   >
-                    <i className="fal fa-search" />
+                    <img
+                      src="/assets/icons/search.svg"
+                      alt="search"
+                      style={{ height: "20px", width: "20px" }}
+                    />
                   </button>
                   <form
                     className={`header-search-form ${
@@ -77,7 +82,11 @@ const Header = () => {
                   >
                     <div className="axil-search form-group">
                       <button type="submit" className="search-button">
-                        <i className="fal fa-search" />
+                        <img
+                          src="/assets/icons/hamburger.svg"
+                          alt="hamburger"
+                          style={{ height: "20px", width: "20px" }}
+                        />
                       </button>
                       <input
                         type="text"
@@ -127,7 +136,11 @@ const Header = () => {
                 <div className="hamburger-menu d-block d-xl-none">
                   <div className="hamburger-inner">
                     <div className="icon" onClick={MobileShowHandler}>
-                      <i className="fal fa-bars" />
+                    <img
+                          src="/assets/icons/hamburger.svg"
+                          alt="hamburger"
+                          style={{ height: "20px", width: "20px" }}
+                        />
                     </div>
                   </div>
                 </div>
