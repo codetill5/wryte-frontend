@@ -1,5 +1,6 @@
 export const userEndpoints = {
   login: "/login",
+  logout: '/logout',
   loggedInUserDetails: "/user",
   editProfile: "/user/update",
   userById: "/user/id",

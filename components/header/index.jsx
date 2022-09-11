@@ -4,11 +4,13 @@ import Link from "next/link";
 
 import MobileMenu from "./MobileMenu";
 import Nav from "./Nav";
-
+import { login, logout, signMessage, verifyMessage } from "../../helper";
+import { useEffect } from "react";
 
 const Header = () => {
   const [showMMenu, SetShowMMenu] = useState(false);
   const [togglaClass, setTogglaClass] = useState(false);
+  const [walletAddress, setWalletAddress] = useState();
 
   const MobileShowHandler = () => SetShowMMenu(true);
   const MobileHideHandler = () => SetShowMMenu(false);
@@ -16,6 +18,33 @@ const Header = () => {
   const toggleHandler = () => {
     setTogglaClass((active) => !active);
   };
+
+  const handleConnect = async () => {
+    const response = await signMessage();
+    if (response) {
+      const address = await verifyMessage(response);
+      setWalletAddress(address);
+    }
+  };
+
+  const signIn = async (walletAddress) => {
+    const data = {
+      walletAddress: walletAddress,
+    };
+    const response = await login(data);
+    console.log(response);
+  };
+
+  const handeDisconnect = async () => {
+    setWalletAddress("");
+    await logout();
+  };
+
+  useEffect(() => {
+    if (walletAddress) {
+      signIn(walletAddress);
+    }
+  }, [walletAddress]);
 
   return (
     <>
@@ -97,50 +126,73 @@ const Header = () => {
                   </form>
                 </div>
                 <ul className="metabar-block">
-                  <li className="icon">
-                    <Link href="#">
-                      <a>
-                        <img
-                          src="/assets/icons/bookmark.svg"
-                          alt="bookmark"
-                          style={{ height: "20px", width: "20px" }}
-                        />
-                      </a>
-                    </Link>
-                  </li>
-                  <li className="icon">
-                    <Link href="#">
-                      <a>
-                        <img
-                          src="/assets/icons/notification.svg"
-                          alt="notification"
-                          style={{ height: "20px", width: "20px" }}
-                        />
-                      </a>
-                    </Link>
-                  </li>
+                  {walletAddress ? (
+                    <>
+                      <li className="icon">
+                        <Link href="#">
+                          <a>
+                            <img
+                              src="/assets/icons/bookmark.svg"
+                              alt="bookmark"
+                              style={{ height: "20px", width: "20px" }}
+                            />
+                          </a>
+                        </Link>
+                      </li>
+                      <li className="icon">
+                        <Link href="#">
+                          <a>
+                            <img
+                              src="/assets/icons/notification.svg"
+                              alt="notification"
+                              style={{ height: "20px", width: "20px" }}
+                            />
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="#">
+                          <a>
+                            <Image
+                              width={40}
+                              height={40}
+                              src="/assets/randomProfile.png"
+                              alt="profile"
+                            />
+                          </a>
+                        </Link>
+                      </li>
+                    </>
+                  ) : (
+                    ""
+                  )}
                   <li>
-                    <Link href="#">
-                      <a>
-                        <Image
-                          width={40}
-                          height={40}
-                          src="/assets/randomProfile.png"
-                          alt="profile"
-                        />
-                      </a>
-                    </Link>
+                    {!walletAddress ? (
+                      <button
+                        className="connectBtn"
+                        onClick={() => handleConnect()}
+                      >
+                        Connect
+                      </button>
+                    ) : (
+                      <button
+                        className="connectBtn"
+                        onClick={() => handeDisconnect()}
+                      >
+                        Disconnect
+                      </button>
+                    )}
                   </li>
                 </ul>
 
                 <div className="hamburger-menu d-block d-xl-none">
                   <div className="hamburger-inner">
                     <div className="icon" onClick={MobileShowHandler}>
-                    <img
-                          src="/assets/icons/hamburger.svg"
-                          alt="hamburger"
-                          style={{ height: "20px", width: "20px" }}
-                        />
+                      <img
+                        src="/assets/icons/hamburger.svg"
+                        alt="hamburger"
+                        style={{ height: "20px", width: "20px" }}
+                      />
                     </div>
                   </div>
                 </div>
