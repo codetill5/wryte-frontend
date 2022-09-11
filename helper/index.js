@@ -40,8 +40,8 @@ const verifyMessage = async ({ message, address, signature }) => {
   }
 };
 
-const logout = async() => {
+const logout = async () => {
   return await userApi.logout();
-}
+};
 
 export { login, signMessage, verifyMessage, logout };
