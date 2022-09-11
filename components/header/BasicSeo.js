@@ -1,11 +1,11 @@
 import Head from "next/head";
 
-const HeadTitle = ({pageTitle}) => {
+const BasicSeo = () => {
     return ( 
         <Head>
             <meta charSet="utf-8" />
             <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-            <title>{`${pageTitle} || wryte`}</title>
+            <title>Wryte</title>
             <meta name="robots" content="noindex, follow" />
             <meta name="description" content="wryte" />
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -14,4 +14,4 @@ const HeadTitle = ({pageTitle}) => {
      );
 }
  
-export default HeadTitle;
+export default BasicSeo;

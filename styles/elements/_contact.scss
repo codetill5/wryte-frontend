@@ -34,4 +34,70 @@ p.form-messege {
 }
 
 
+.inputOuterText{
+    font-size: 13px;
+    margin: 5px 0px;
+}
 
+
+.editSocialLinks{
+   margin-top: 50px;
+   margin-bottom: 50px;
+}
+
+.socialLinkInput::placeholder{
+    opacity: 0.8 !important;
+    font-size: 14px !important;
+}
+
+
+.shortBioInput{
+   height: 80px !important;
+    color: #fff;
+}
+
+.avatarContainer{
+    height: auto;
+    width: 200px;
+    border-radius: 10px;
+    background-color: #242424;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgb(255 255 255 / 12%) 0px 5px 30px;
+}
+
+.avatarContainer > img {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.avatarContainer > button {
+    background-color: #3858F6;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    width: auto;
+    border-radius: 10px;
+    border: none;
+    padding: 5px 8px;
+    margin: 10px 0;
+}
+
+
+.formContainer{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+@media screen and (max-width: '900px') {
+    .col{
+        width: unset !important;
+    }
+ 
+}

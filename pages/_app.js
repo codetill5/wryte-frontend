@@ -1,13 +1,18 @@
-import 'bootstrap/dist/css/bootstrap.css';
-import '../styles/style.scss'
+import Layout from "../components/layout";
+import ColorSwitcher from "../components/ColorSwitcher";
 
+import "bootstrap/dist/css/bootstrap.css";
+import "../styles/style.scss";
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
   return (
     <>
-		<Component {...pageProps} />
+      <ColorSwitcher />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
-  )
-}
+  );
+};
 
-export default MyApp
+export default MyApp;
