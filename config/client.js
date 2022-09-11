@@ -10,7 +10,7 @@ const API_HEADERS = {
 };
 
 const api = axios.create({
-  baseURL:"http://localhost:4000/api/v1",
+  baseURL: "http://localhost:4000/api/v1",
   timeout: API_TIMEOUT,
   headers: API_HEADERS,
 });
@@ -75,13 +75,13 @@ const resolveGet = async (...args) => {
 //   }
 // };
 
-
 export const userApi = {
   login: (data = {}) => resolvePost(userEndpoints.login, data),
-  logout: () => resolveGet(userEndpoints.logout)
+  logout: () => resolveGet(userEndpoints.logout),
+  editProfile: (data = {}) => resolvePost(userEndpoints.editProfile, data),
   // mintMultiple: (data = {}) => resolvePost(endPoints.mintMultiple, data),
   // multipleTokenMetadata: (data = '') => resolveGet(`${endPoints.multipleTokenMetadata}/${data.contractAddress}/${data.tokenId}`),
   // getMultipleToken: (data = '') => resolveGet(`${endPoints.getMultipleToken}/${data}`),
   // encryptTokenId: (data = {}) => resolvePut(endPoints.encryptTokenId, data),
   // decryptTokenId: (data = '') =>  resolveGetRequest(`${endPoints.encryptTokenId}/${data}`),
-}
+};

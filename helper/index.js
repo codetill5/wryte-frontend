@@ -44,4 +44,8 @@ const logout = async () => {
   return await userApi.logout();
 };
 
-export { login, signMessage, verifyMessage, logout };
+const editProfile = async(data) => {
+  return await userApi.editProfile(data);
+}
+
+export { login, signMessage, verifyMessage, logout, editProfile };
