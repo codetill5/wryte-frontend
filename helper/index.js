@@ -1,6 +1,8 @@
 import { ethers } from "ethers";
 import jsHttpCookie from "cookie";
 import jsCookie from "js-cookie";
+import Router from "next/router";
+
 import { storageApi, userApi } from "../config/client";
 
 const login = async (data) => {
@@ -12,30 +14,26 @@ const login = async (data) => {
 };
 
 const getUserData = (req) => {
-  const initProps = {};
-
   if (req && req.headers) {
-    console.log(req.headers);
     const cookies = req.headers.cookie;
     if (typeof cookies === "string") {
       const cookiesJSON = jsHttpCookie.parse(cookies);
-      initProps.userData = cookiesJSON.userData;
+      return cookiesJSON;
     }
   } else {
-    const d = getCookie("userData");
-    console.log(d);
-    initProps.userData = d;
+    const userCookie = getCookie("userData");
+    return userCookie;
   }
 };
 
-function getCookie(name) {
+const getCookie = (name) => {
   if (typeof document !== "undefined") {
     var value = "; " + document.cookie;
     var parts = value.split("; " + name + "=");
     if (parts.length == 2)
       return decodeURIComponent(parts.pop().split(";").shift());
   }
-}
+};
 
 const signMessage = async () => {
   const message = "Welcome";
@@ -73,7 +71,9 @@ const verifyMessage = async ({ message, address, signature }) => {
 };
 
 const logout = async () => {
-  return await userApi.logout();
+  // return await userApi.logout();
+  await jsCookie.remove("userData");
+  Router.push("/");
 };
 
 const editProfile = async (data) => {
@@ -84,6 +84,11 @@ const uploadMetadata = async (data) => {
   return await storageApi.upload(data);
 };
 
+const isLoggedIn = async () => {
+  const loggedInData = getUserData();
+  return loggedInData;
+};
+
 export {
   login,
   signMessage,
@@ -91,4 +96,5 @@ export {
   logout,
   editProfile,
   uploadMetadata,
+  isLoggedIn,
 };

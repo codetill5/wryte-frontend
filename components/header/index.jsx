@@ -6,13 +6,19 @@ import { useDispatch } from "react-redux";
 
 import MobileMenu from "./MobileMenu";
 import Nav from "./Nav";
-import { login, logout, signMessage, verifyMessage } from "../../helper";
-import { saveWalletAddress } from "../../store/slices/wallet";
+import {
+  login,
+  logout,
+  signMessage,
+  verifyMessage,
+  isLoggedIn,
+} from "../../helper";
 
 const Header = () => {
   const [showMMenu, SetShowMMenu] = useState(false);
   const [togglaClass, setTogglaClass] = useState(false);
   const [walletAddress, setWalletAddress] = useState();
+  const [userData, setUserData] = useState();
   const router = useRouter();
   const dispatch = useDispatch();
   const pathname =
@@ -30,7 +36,6 @@ const Header = () => {
     if (response) {
       const address = await verifyMessage(response);
       setWalletAddress(address);
-      dispatch(saveWalletAddress(address));
       // router.push("/profile/edit");
     } else {
       router.push("/loading");
@@ -45,7 +50,6 @@ const Header = () => {
   };
 
   const handeDisconnect = async () => {
-    setWalletAddress("");
     await logout();
   };
 
@@ -54,6 +58,15 @@ const Header = () => {
       signIn(walletAddress);
     }
   }, [walletAddress]);
+
+  useEffect(async () => {
+    const logged = await isLoggedIn();
+    if (!logged) {
+      router.push("/");
+    } else {
+      setUserData(logged);
+    }
+  }, []);
 
   return (
     <>
@@ -139,7 +152,7 @@ const Header = () => {
                   </form>
                 </div>
                 <ul className="metabar-block">
-                  {walletAddress ? (
+                  {userData ? (
                     <>
                       <li className="icon">
                         <Link href="#">
@@ -164,7 +177,7 @@ const Header = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link href="#">
+                        <Link href="profile/shubham">
                           <a>
                             <Image
                               width={40}
@@ -180,7 +193,7 @@ const Header = () => {
                     ""
                   )}
                   <li>
-                    {!walletAddress ? (
+                    {!userData ? (
                       <button
                         className="connectBtn"
                         onClick={() => handleConnect()}
