@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import MobileMenu from "./MobileMenu";
 import Nav from "./Nav";
 import { login, logout, signMessage, verifyMessage } from "../../helper";
-import { useEffect } from "react";
+
 
 const Header = () => {
   const [showMMenu, SetShowMMenu] = useState(false);
   const [togglaClass, setTogglaClass] = useState(false);
   const [walletAddress, setWalletAddress] = useState();
+  const router = useRouter();
+  const pathname = typeof window !== "undefined" ? window.location.pathname : ""
 
   const MobileShowHandler = () => SetShowMMenu(true);
   const MobileHideHandler = () => SetShowMMenu(false);
@@ -24,6 +27,9 @@ const Header = () => {
     if (response) {
       const address = await verifyMessage(response);
       setWalletAddress(address);
+      router.push('/profile/edit');
+    }else{
+      router.push('/loading');
     }
   };
 
@@ -32,7 +38,6 @@ const Header = () => {
       walletAddress: walletAddress,
     };
     const response = await login(data);
-    console.log(response);
   };
 
   const handeDisconnect = async () => {
@@ -78,6 +83,7 @@ const Header = () => {
             <div className="col-xl-3 col-lg-8 col-md-8 col-sm-9 col-12">
               <div className="header-search text-end d-flex align-items-center">
                 <form className="header-search-form d-sm-block d-none">
+                  {pathname !== "/" ? 
                   <div className="axil-search form-group">
                     <button type="submit" className="search-button">
                       <img
@@ -91,7 +97,7 @@ const Header = () => {
                       className="form-control"
                       placeholder="Search"
                     />
-                  </div>
+                  </div>: ''}
                 </form>
                 <div className="mobile-search-wrapper d-sm-none d-block">
                   <button
