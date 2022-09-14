@@ -1,27 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
+
+import { editProfile } from "../../helper";
 
 const EditForm = () => {
+  const [name, setName] = useState();
+  const [shortUrl, setshortUrl] = useState();
+  const [email, setEmail] = useState();
+  const [webUrl, setWebUrl] = useState();
+  const [twitterUsername, SetTwitterUsername] = useState();
+  const [telegramUsername, setTelegramUsername] = useState();
+  const [profileImg, setProfileImg] = useState();
+
+  const updateProfile = async () => {
+    const data = {
+      name: name,
+      email: email,
+      profileImg: profileImg,
+      shortUrl: shortUrl,
+    };
+    const response = await editProfile(data);
+    console.log(response);
+  };
+
   return (
     <div className="axil-contact-form-area editProfileHeader">
       <h2 className="title mb--10 editProfileHeader">Profile Settings</h2>
-      <p className="b3 mb--30 editProfileHeader">You can update your profile details here</p>
+      <p className="b3 mb--30 editProfileHeader">
+        You can update your profile details here
+      </p>
       <form className="axil-contact-form contact-form--1 row editProfile">
-        
         <div className="col-12 col-md-9">
-        <div className="col-10">
-          <div className="avatarContainer">
-            <img src="/assets/randomProfile.png" alt="profile" />
-            <button>
-              Change Profile
-            </button>
+          <div className="col-10">
+            <div className="avatarContainer">
+              <img src="/assets/randomProfile.png" alt="profile" />
+              <button>Change Profile</button>
+            </div>
           </div>
-        </div>
           <div className="form-group">
             <label htmlFor="contact-name">Display name</label>
-            <input type="text" required />
+            <input
+              type="text"
+              required
+              onChange={(e) => setName(e.target.value)}
+            />
           </div>
           <div className="form-group">
-            <label htmlFor="contact-phone">Short bio</label>
+            <label htmlFor="contact-phone">Short url</label>
             <textarea className="shortBioInput" required />
             <p className="inputOuterText">
               Your profile will be available on wryte.xyz/profile/[username]
@@ -29,7 +53,11 @@ const EditForm = () => {
           </div>
           <div className="form-group">
             <label htmlFor="contact-email">Email</label>
-            <input type="email" required />
+            <input
+              type="email"
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
 
           <div className="editSocialLinks">
@@ -44,6 +72,7 @@ const EditForm = () => {
                 type="text"
                 placeholder="https://"
                 required
+                onChange={(e) => setWebUrl(e.target.value)}
               />
             </div>
             <div className="form-group">
@@ -53,6 +82,7 @@ const EditForm = () => {
                 type="text"
                 placeholder="Enter your twitter username"
                 required
+                onChange={(e) => SetTwitterUsername(e.target.value)}
               />
             </div>
             <div className="form-group">
@@ -62,6 +92,7 @@ const EditForm = () => {
                 type="text"
                 placeholder="Enter your telegram username"
                 required
+                onChange={(e) => setTelegramUsername(e.target.value)}
               />
             </div>
           </div>
