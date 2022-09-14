@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { userApi } from "../config/client";
+import { storageApi, userApi } from "../config/client";
 
 const login = async (data) => {
   return userApi.login(data);
@@ -44,8 +44,19 @@ const logout = async () => {
   return await userApi.logout();
 };
 
-const editProfile = async(data) => {
+const editProfile = async (data) => {
   return await userApi.editProfile(data);
-}
+};
 
-export { login, signMessage, verifyMessage, logout, editProfile };
+const uploadMetadata = async (data) => {
+  return await storageApi.upload(data);
+};
+
+export {
+  login,
+  signMessage,
+  verifyMessage,
+  logout,
+  editProfile,
+  uploadMetadata,
+};

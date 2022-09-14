@@ -1,6 +1,6 @@
 export const userEndpoints = {
   login: "/login",
-  logout: '/logout',
+  logout: "/logout",
   loggedInUserDetails: "/user",
   editProfile: "/user/update",
   userById: "/user/id",
@@ -9,4 +9,8 @@ export const userEndpoints = {
 
 export const blogEndpoints = {
   createBlog: "upload/new",
+};
+
+export const nftStorageEnpoints = {
+  upload: "/upload",
 };
