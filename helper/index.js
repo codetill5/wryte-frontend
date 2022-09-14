@@ -1,9 +1,41 @@
 import { ethers } from "ethers";
+import jsHttpCookie from "cookie";
+import jsCookie from "js-cookie";
 import { storageApi, userApi } from "../config/client";
 
 const login = async (data) => {
-  return userApi.login(data);
+  const response = await userApi.login(data);
+  if (response) {
+    jsCookie.set("userData", JSON.stringify(response.user), { expires: 3 });
+  }
+  return getUserData();
 };
+
+const getUserData = (req) => {
+  const initProps = {};
+
+  if (req && req.headers) {
+    console.log(req.headers);
+    const cookies = req.headers.cookie;
+    if (typeof cookies === "string") {
+      const cookiesJSON = jsHttpCookie.parse(cookies);
+      initProps.userData = cookiesJSON.userData;
+    }
+  } else {
+    const d = getCookie("userData");
+    console.log(d);
+    initProps.userData = d;
+  }
+};
+
+function getCookie(name) {
+  if (typeof document !== "undefined") {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2)
+      return decodeURIComponent(parts.pop().split(";").shift());
+  }
+}
 
 const signMessage = async () => {
   const message = "Welcome";
