@@ -15,7 +15,7 @@ const Editor = (props) => {
         throw new Error("Title cannot be empty. Please enter title");
       if (!blogData.blocks[0])
         throw new Error("Blog cannot be empty. Please enter some data");
-      props.onSave(blogData, title, description);
+      props.onSave(blogData, title, coverImg);
     } catch (err) {
       console.log(err);
     }
@@ -54,10 +54,12 @@ const Editor = (props) => {
       />
 
       <div className="editorBlock">{editorComponent}</div>
-      <button className="publishBtn">Publish</button>
-      {/* <div style={{ textAlign: "center" }}>
-        <button onClick={() => onSaveHandler(editorInstance)}>Save</button>
-      </div> */}
+      <button
+        className="publishBtn"
+        onClick={() => onSaveHandler(editorInstance)}
+      >
+        Publish
+      </button>
     </div>
   );
 };

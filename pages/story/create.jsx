@@ -13,7 +13,6 @@ const Create = (props) => {
 
   return (
     <div className="storyContainer">
-     
       <Editor
         onSave={(editorData, title, description) =>
           onSaveHandler(editorData, title, description)
