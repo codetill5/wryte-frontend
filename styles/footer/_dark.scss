@@ -6,7 +6,7 @@ body {
         color: #ffffff;
         background: #212121;
         .axil-header {
-            background: #1A1A1A;
+            background: #212121;
         }
         .bg-color-grey {
             background: #212121;
@@ -389,9 +389,9 @@ body.active-dark-mode input[type="radio"] ~ label::before {
     border-color: #050505;
 }
 
-body.active-dark-mode .axil-header {
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
-}
+// body.active-dark-mode .axil-header {
+//     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+// }
 
 body.active-dark-mode .content-block.sticky {
     background: #050505;

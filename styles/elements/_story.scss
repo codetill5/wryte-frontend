@@ -1,79 +1,52 @@
-.storyContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #000 !important;
-    
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap");
+
+.storyContainer {
+  margin: 0 auto;
+  max-width: 740px;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 
-.storyBlock{
-    background-color: #1A1A1A;
-    width: 70%;
-    min-height: 900px;
-    height: auto;
-    margin-top: 100px;
-    border-radius: 10px;
-    z-index: 1;
-    box-shadow: rgb(255 255 255 / 12%) 0px 5px 30px;
-    margin-bottom: 50px;
+.storyTitle {
+  margin: 0 auto;
+  border: none;
+  outline: none;
+  font-size: 50px;
+  margin-top: 30px;
+  margin-left: 20px;
+  color: #fff;
+  min-height: 80px;
+  max-height: auto;
+  max-width: 740px;
 }
 
-.threeObjects{
-    height: 350px;
-    width: 350px;
-    object-fit: contain;
+.storyTitle::placeholder {
+  font-family: "Lora", serif;
 }
 
-.floatImgContainer{
-    display: flex;
-    justify-content: space-between  ;
-    width: 100%;
+.editorBlock {
+  min-width: 740px !important;
+  caret-color: #fff;
+  color: #fff !important;
 }
 
-.leftImgContainer{
-    display: flex;
-    flex-direction: column;
+.publishBtn {
+  color: #fff;
+  border: none;
+  background-color: #3858f6;
+  border-radius: 20px;
+  padding: 10px 0px !important;
+  width: 100px !important;
+  font-size: 14px !important;
+  margin-top: 30px;
+  margin-left: 20px;
 }
 
-.leftImgContainer > img {
-    position: relative;
-    animation: animate 2s alternate infinite;
+.ce-toolbar__plus {
+  background-color: #eff2f5 !important;
+  color: black !important;
 }
 
-.rightImgContainer > img {
-    position: relative;
-    animation: animate 3s alternate infinite;
-
+.ce-popover--opened {
+  color: black !important;
 }
-
-.leftImgContainer > img:nth-child(1){
-    margin-left: 80px;
-    animation:spin 6s linear infinite;
-}
-
-.leftImgContainer > img:nth-child(3){
-    margin-left: -100px;
-}
-
-.rightImgContainer{
-    display: flex;
-    flex-direction: column ;
-}
-
-.rightImgContainer > img:nth-child(2){
-    margin-left: -110px;
-    animation:spin 6s linear infinite;
-}
-
-
-@keyframes animate {
-    from{
-        bottom: 0;
-    }
-    to{
-        bottom: 60px;
-    }
-}
-
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
