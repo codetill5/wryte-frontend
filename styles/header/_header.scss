@@ -17,6 +17,7 @@ Header Styles
         box-shadow: var(--shadow-primary);
     }
     .logo {
+        margin-left: 100px;
         @media #{$large-mobile} {
             text-align: center;
             margin-bottom: 20px;

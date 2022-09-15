@@ -2,7 +2,7 @@
     Start Footer Area 
 =============================*/
 .axil-footer-style-1 {
-    padding: 40px 0;
+    padding: 60px 0;
     .footer-top {
         .inner {
             padding-bottom: 20px;
@@ -202,13 +202,9 @@
             &.social-icon {
                 li {
                     a {
-                        background: #333333;
+                        background: #fff;
                         color: #ffffff;
                         transition: 0.3s;
-                        &:hover {
-                            background: var(--color-primary);
-                            color: #ffffff;
-                        }
                     }
                 }
             }

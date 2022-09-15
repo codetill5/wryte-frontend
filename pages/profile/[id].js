@@ -1,11 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import {
+  FaTwitter,
+  FaTelegramPlane,
+  FaGlobeAmericas,
+  FaInstagram,
+} from "react-icons/fa";
 
 import PostContainerOne from "../../components/posts/PostContainerOne";
 import Sidebar from "../../components/Sidebar";
 
-
 const Profile = () => {
+  const router = useRouter();
   return (
     <>
       <div className="axil-author-area axil-author-banner bg-color-grey">
@@ -40,8 +47,25 @@ const Profile = () => {
                         I’ve come, and so thankful for where I come from.
                       </p>
                       <ul className="social-share-transparent size-md authorSocialIcons">
-                      {/* <FaIcon icon="camera-retro" size="lg" /> */}
+                        <li>
+                          <FaTwitter />
+                        </li>
+                        <li>
+                          <FaTelegramPlane />
+                        </li>
+                        <li>
+                          <FaInstagram />
+                        </li>
+                        <li>
+                          <FaGlobeAmericas />
+                        </li>
                       </ul>
+                      <button
+                        className="editBtn"
+                        onClick={() => router.push("/profile/edit")}
+                      >
+                        Edit Profile
+                      </button>
                     </div>
                   </div>
                 </div>
