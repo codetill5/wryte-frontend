@@ -1,0 +1,53 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.outerContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landingContainer {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landingContent {
+  width: 60%;
+  margin-left: 20px;
+}
+
+.landingContent > h1 {
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 60px;
+}
+
+.landingContent > button {
+  color: #fff;
+  border: none;
+  background-color: #3858f6;
+  border-radius: 20px;
+  padding: 10px 20px;
+  width: 120px;
+  font-size: 14px;
+  gap: 20px;
+  font-weight: 500;
+}
+
+.landingContent > p {
+  color: #fff !important;
+  font-weight: 300;
+  font-size: 20px;
+  width: 60%;
+  padding-top: 10px;
+  opacity: 0.9;
+}
+
+.landingImg {
+  width: 60%;
+}
