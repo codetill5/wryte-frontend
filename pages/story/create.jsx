@@ -1,11 +1,11 @@
 import Editor from "../../components/Editor/Editor";
 
-const Create = (props) => {
-  const onSaveHandler = async (blogData, title, description) => {
+const Create = () => {
+  const onSaveHandler = async (blogData, title, coverImg) => {
     const toSaveData = {
       title,
       blogData,
-      description,
+      coverImg,
     };
 
     console.log(toSaveData);
@@ -14,8 +14,8 @@ const Create = (props) => {
   return (
     <div className="storyContainer">
       <Editor
-        onSave={(editorData, title, description) =>
-          onSaveHandler(editorData, title, description)
+        onSave={(editorData, title, coverImg) =>
+          onSaveHandler(editorData, title, coverImg)
         }
       />
     </div>
