@@ -76,7 +76,7 @@ const Header = () => {
             <div className="col-xl-3 col-lg-3 col-md-4 col-sm-3 col-12">
               <div className="logo">
                 <Link href="/">
-                  <a>
+                  <a className="headerLogo">
                     <Image
                       className="dark-logo"
                       width={500}
@@ -85,6 +85,7 @@ const Header = () => {
                       src="/assets/gifLogo.gif"
                       alt="wryte logo"
                     />
+                    <span className="betaTag">Beta</span>
                   </a>
                 </Link>
               </div>

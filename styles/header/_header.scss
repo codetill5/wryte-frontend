@@ -734,3 +734,17 @@ button {
 .menuList{
      margin-right: 20px !important;
 }
+
+.betaTag{
+    background-color: #3858F6;
+    border-radius: 10px;
+    font-size: 10px;
+    padding: 3px 6px;
+}
+
+.headerLogo{
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    // flex-direction: column;
+}
