@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 
 import MobileMenu from "./MobileMenu";
-import Nav from "./Nav";
+
 import {
   login,
   logout,
@@ -76,7 +76,7 @@ const Header = () => {
             <div className="col-xl-3 col-lg-3 col-md-4 col-sm-3 col-12">
               <div className="logo">
                 <Link href="/">
-                  <a>
+                  <a className="headerLogo">
                     <Image
                       className="dark-logo"
                       width={500}
@@ -85,17 +85,12 @@ const Header = () => {
                       src="/assets/gifLogo.gif"
                       alt="wryte logo"
                     />
+                    <span className="betaTag">Beta</span>
                   </a>
                 </Link>
               </div>
             </div>
-            <div className="col-xl-6 d-none d-xl-block">
-              <div className="mainmenu-wrapper">
-                <nav className="mainmenu-nav">
-                  <Nav />
-                </nav>
-              </div>
-            </div>
+           
 
             <div className="col-xl-3 col-lg-8 col-md-8 col-sm-9 col-12">
               <div className="header-search text-end d-flex align-items-center">
@@ -116,7 +111,11 @@ const Header = () => {
                       />
                     </div>
                   ) : (
-                    ""
+                    <div className="menuList">
+                    <Link href="/lightpaper" >
+                      <a>Litepaper</a>
+                    </Link>
+                    </div>
                   )}
                 </form>
                 <div className="mobile-search-wrapper d-sm-none d-block">
