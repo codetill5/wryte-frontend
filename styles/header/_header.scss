@@ -1,9 +1,10 @@
-/*--------------------
-Header Styles  
------------------------*/
+    *{
+    font-family: 'Poppins', sans-serif;;
+    }
+
 .axil-header {
-    padding: 0 60px;
-    background: #fff;
+    padding: 20px 60px !important;
+    background: #212121 !important;
     position: relative;
     z-index: 99;
     @media #{$laptop-device} {
@@ -14,7 +15,7 @@ Header Styles
     }
 
     &.header-with-shadow {
-        box-shadow: var(--shadow-primary);
+        // box-shadow: var(--shadow-primary);
     }
     .logo {
         margin-left: 100px;
@@ -727,4 +728,23 @@ button {
     width: 100%;
     font-size: 14px;
     gap: 20px;
+    font-weight: 500;
+}
+
+.menuList{
+     margin-right: 20px !important;
+}
+
+.betaTag{
+    background-color: #3858F6;
+    border-radius: 10px;
+    font-size: 10px;
+    padding: 3px 6px;
+}
+
+.headerLogo{
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    // flex-direction: column;
 }

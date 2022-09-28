@@ -11,7 +11,7 @@ const API_HEADERS = {
 };
 
 const NFT_STORAGE_HEADER = {
-  "Authorization": `Bearer ${keys.NFT_STORAGE_KEY}`
+  "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDcxNDc5OTgxMjZGMzAwQmMxQmMwYUViNkNlZTFmMkZiY0QyYUY4YjAiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY1OTUxMTc5NTcxOSwibmFtZSI6InRlc3RpbmcifQ.awUqr9yysVB7j2jb3hpwAsPRDc9piO0eswQMVUzGLOk`
 }
 
 const api = axios.create({
@@ -21,7 +21,7 @@ const api = axios.create({
 });
 
 const nftStorageApi = axios.create({
-  baseURL: keys.NFT_STORAGE,
+  baseURL: "https://api.nft.storage",
   timeout: API_TIMEOUT,
   headers: NFT_STORAGE_HEADER,
 });
@@ -114,5 +114,5 @@ export const userApi = {
 
 
 export const storageApi = {
-  upload: (data = {}) => resolvePost(nftStorageEnpoints.upload, data)
+  upload: (data = {}) => storagePost(nftStorageEnpoints.upload, data)
 }
