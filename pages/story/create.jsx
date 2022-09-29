@@ -1,3 +1,4 @@
+import { uploadToIPFS } from "../../helper";
 import Editor from "../../components/Editor/Editor";
 
 const Create = () => {
@@ -8,7 +9,10 @@ const Create = () => {
       coverImg,
     };
 
-    console.log(toSaveData);
+    const json = JSON.stringify(toSaveData);
+    const file = new Blob([json], { type: "text/json" });
+    const response = await uploadToIPFS(file);
+    console.log(response)
   };
 
   return (

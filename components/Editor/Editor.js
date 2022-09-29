@@ -34,6 +34,20 @@ const Editor = (props) => {
     );
   }
 
+  //   show data
+  //   data={{
+  //     time: 1664424971324,
+  //     blocks: [
+  //       {
+  //         id: "7VZW_us5v0",
+  //         type: "header",
+  //         data: { text: "great show", level: 2 },
+  //       },
+  //     ],
+  //     version: "2.25.0",
+
+  // }}
+
   useEffect(() => {
     const importConstants = async () => {
       const tools = (await import("../../components/Editor/EditorConstants"))
