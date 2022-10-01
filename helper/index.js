@@ -81,7 +81,7 @@ const editProfile = async (data) => {
 };
 
 const uploadToIPFS = async (data) => {
-  return await storageApi.upload(data);
+  return storageApi.upload(data);
 };
 
 const isLoggedIn = async () => {

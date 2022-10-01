@@ -14,7 +14,7 @@ import ChangeCase from "editorjs-change-case";
 import Alert from "editorjs-alert";
 import ColorPlugin from "editorjs-text-color-plugin";
 
-import { uploadMetadata } from "../../helper";
+import { uploadToIPFS } from "../../helper";
 
 const constants = {
   header: {
@@ -81,13 +81,12 @@ const constants = {
     config: {
       uploader: {
         async uploadByFile(file) {
-          const response = await uploadMetadata(file);
+          const response = await uploadToIPFS(file);
+          console.log(response?.value?.cid, "infucn");
           return {
             success: 1,
             file: {
-              url: {
-                url: `https://ipfs.io/ipfs/${response?.value?.cid}`,
-              },
+              url: `https://ipfs.io/ipfs/${response?.value?.cid}`,
             },
           };
         },
