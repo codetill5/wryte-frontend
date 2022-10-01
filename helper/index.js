@@ -80,7 +80,7 @@ const editProfile = async (data) => {
   return await userApi.editProfile(data);
 };
 
-const uploadMetadata = async (data) => {
+const uploadToIPFS = async (data) => {
   return await storageApi.upload(data);
 };
 
@@ -95,6 +95,6 @@ export {
   verifyMessage,
   logout,
   editProfile,
-  uploadMetadata,
+  uploadToIPFS,
   isLoggedIn,
 };
