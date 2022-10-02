@@ -1,11 +1,10 @@
-import React,{ useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 
 import contractABI from "../../contractABI.json";
 import { uploadToIPFS } from "../../helper";
 import Editor from "../../components/Editor/Editor";
 import keys from "../../config/key.config";
-import { useState } from "react";
 
 const Create = () => {
   const [metdata, setMetadata] = useState();
