@@ -18,6 +18,7 @@ const Create = () => {
     const json = JSON.stringify(toSaveData);
     const file = new Blob([json], { type: "text/json" });
     const response = await uploadToIPFS(file);
+    console.log(response);
     setMetadata(response?.value?.cid);
   };
 

@@ -1,7 +1,12 @@
 import axios from "axios";
 import _ from "lodash";
-import { nftStorageEnpoints, userEndpoints } from "./endpoints";
-import keys from "./key.config";
+
+import {
+  contractEndpoints,
+  nftStorageEnpoints,
+  userEndpoints,
+} from "./endpoints";
+import keys from "../config/key.config";
 
 const API_TIMEOUT = 20000;
 
@@ -12,6 +17,10 @@ const API_HEADERS = {
 
 const NFT_STORAGE_HEADER = {
   Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDcxNDc5OTgxMjZGMzAwQmMxQmMwYUViNkNlZTFmMkZiY0QyYUY4YjAiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY1OTUxMTc5NTcxOSwibmFtZSI6InRlc3RpbmcifQ.awUqr9yysVB7j2jb3hpwAsPRDc9piO0eswQMVUzGLOk`,
+};
+
+const CONTRACT_HEADER = {
+  "x-api-key": keys.FETCH_CONTRACT,
 };
 
 const api = axios.create({
@@ -26,6 +35,11 @@ const nftStorageApi = axios.create({
   headers: NFT_STORAGE_HEADER,
 });
 
+const contractApis = axios.create({
+  baseURL: "https://deep-index.moralis.io/api/v2",
+  timeout: API_TIMEOUT,
+  headers: CONTRACT_HEADER,
+});
 const resolvePost = async (...args) => {
   try {
     const response = await api.post(...args);
@@ -58,7 +72,7 @@ const resolveGet = async (...args) => {
 
 // const resolvePut = async (...args) => {
 //   try {
-//     const response = await xhypeApi.put(...args);
+//     const response = await .put(...args);
 //     if (response.data) {
 //       return response.data;
 //     }
@@ -73,7 +87,7 @@ const resolveGet = async (...args) => {
 
 // const resolvePatchRequest = async (...args) => {
 //   try {
-//     const response = await xhypeApi.patch(...args);
+//     const response = await .patch(...args);
 //     if (response.data) {
 //       return response.data;
 //     }
@@ -101,17 +115,38 @@ const storagePost = async (...args) => {
   }
 };
 
+const contractGet = async (...args) => {
+  try {
+    const response = await contractApis.get(...args);
+    if (response.data) {
+      return response.data;
+    }
+    return response;
+  } catch (error) {
+    if (_.has(error, "response.data")) {
+      return error.response.data;
+    }
+    return null;
+  }
+};
+
 export const userApi = {
   login: (data = {}) => resolvePost(userEndpoints.login, data),
   logout: () => resolveGet(userEndpoints.logout),
   editProfile: (data = {}) => resolvePost(userEndpoints.editProfile, data),
-  // mintMultiple: (data = {}) => resolvePost(endPoints.mintMultiple, data),
-  // multipleTokenMetadata: (data = '') => resolveGet(`${endPoints.multipleTokenMetadata}/${data.contractAddress}/${data.tokenId}`),
-  // getMultipleToken: (data = '') => resolveGet(`${endPoints.getMultipleToken}/${data}`),
-  // encryptTokenId: (data = {}) => resolvePut(endPoints.encryptTokenId, data),
-  // decryptTokenId: (data = '') =>  resolveGetRequest(`${endPoints.encryptTokenId}/${data}`),
 };
 
 export const storageApi = {
   upload: (data = {}) => storagePost(nftStorageEnpoints.upload, data),
+};
+
+export const contractApi = {
+  getAllNftsFromContract: (data = "") =>
+    contractGet(
+      `${data.address}/${contractEndpoints.getAllNftsFromContract}/${data.contract}?chain=mumbai&format=decimal`
+    ),
+  getMetadataByTokenId: (data = "") =>
+    contractGet(
+      `${contractEndpoints.getMetadataByTokenId}/${data.address}/${data.tokenId}?chain=mumbai&format=decimal`
+    ),
 };

@@ -8,9 +8,14 @@ export const userEndpoints = {
 };
 
 export const blogEndpoints = {
-  createBlog: "upload/new",
+  createBlog: "/upload/new",
 };
 
 export const nftStorageEnpoints = {
   upload: "/upload",
 };
+
+export const contractEndpoints = {
+  getWalletNft: '/nft',
+  getMetadataByTokenId: '/nft'
+}
