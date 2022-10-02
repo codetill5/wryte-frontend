@@ -40,6 +40,7 @@ const contractApis = axios.create({
   timeout: API_TIMEOUT,
   headers: CONTRACT_HEADER,
 });
+
 const resolvePost = async (...args) => {
   try {
     const response = await api.post(...args);
@@ -143,7 +144,7 @@ export const storageApi = {
 export const contractApi = {
   getAllNftsFromContract: (data = "") =>
     contractGet(
-      `${data.address}/${contractEndpoints.getAllNftsFromContract}/${data.contract}?chain=mumbai&format=decimal`
+      `${data.address}${contractEndpoints.getWalletNft}/${data.contract}?chain=mumbai&format=decimal`
     ),
   getMetadataByTokenId: (data = "") =>
     contractGet(

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { editProfile } from "../../helper";
 
-const EditForm = () => {
+const EditForm = ({ userdata }) => {
   const [name, setName] = useState();
   const [shortUrl, setshortUrl] = useState();
   const [email, setEmail] = useState();
@@ -41,12 +41,13 @@ const EditForm = () => {
             <input
               type="text"
               required
+              value={userdata?.name}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="form-group">
-            <label htmlFor="contact-phone">Short url</label>
-            <textarea className="shortBioInput" required />
+            <label htmlFor="contact-phone">Bio</label>
+            <textarea className="shortBioInput" required value={userdata?.bio} />
             <p className="inputOuterText">
               Your profile will be available on wryte.xyz/profile/[username]
             </p>
@@ -56,6 +57,7 @@ const EditForm = () => {
             <input
               type="email"
               required
+              value={userdata?.email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>

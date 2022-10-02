@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -8,11 +9,38 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 
+import { getUserData, getBlogFromContract } from "../../helper";
 import PostContainerOne from "../../components/posts/PostContainerOne";
 import Sidebar from "../../components/Sidebar";
+import keys from "../../config/key.config";
 
 const Profile = () => {
   const router = useRouter();
+  const [userdata, setUserData] = useState();
+  const [blog, setBlog] = useState();
+
+  const getBlog = async () => {
+    const data = {
+      address: userdata?.walletAddress,
+      contract: keys.MINT_CONTRACT,
+    };
+    const response = await getBlogFromContract(data);
+    setBlog(response?.result)
+  };
+
+  useEffect(() => {
+    const data = getUserData();
+    setUserData(JSON.parse(data));
+  }, []);
+
+  useEffect(() => {
+    if (userdata) {
+      getBlog();
+    }
+  }, [userdata]);
+
+  console.log(userdata)
+
   return (
     <>
       <div className="axil-author-area axil-author-banner bg-color-grey">
@@ -36,15 +64,12 @@ const Profile = () => {
                   </div>
                   <div className="media-body">
                     <div className="author-info">
-                      <h1 className="title">shubham mehra</h1>
-                      <span className="b3 subtitle">Software developer</span>
+                      <h1 className="title">{userdata?.name}</h1>
+                      <span className="b3 subtitle">{userdata?.designation}</span>
                     </div>
                     <div className="content">
                       <p className="b1 description">
-                        At 22 years old, my favorite compliment is being told
-                        that I look like my mom. Seeing myself in her image,
-                        like this daughter up top, makes me so proud of how far
-                        I’ve come, and so thankful for where I come from.
+                      {userdata?.bio}
                       </p>
                       <ul className="social-share-transparent size-md authorSocialIcons">
                         <li>
@@ -85,7 +110,7 @@ const Profile = () => {
               </div>
             </div>
             <div className="col-lg-8 col-xl-8">
-              <PostContainerOne />
+              <PostContainerOne blog={blog} />
             </div>
             <div className="col-lg-4 col-xl-4 mt_md--40 mt_sm--40">
               <Sidebar />

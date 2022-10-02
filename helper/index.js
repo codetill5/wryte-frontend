@@ -3,7 +3,7 @@ import jsHttpCookie from "cookie";
 import jsCookie from "js-cookie";
 import Router from "next/router";
 
-import { storageApi, userApi } from "../config/client";
+import { contractApi, storageApi, userApi } from "../config/client";
 
 const login = async (data) => {
   const response = await userApi.login(data);
@@ -89,6 +89,10 @@ const isLoggedIn = async () => {
   return loggedInData;
 };
 
+const getBlogFromContract = async(data) => {
+ return contractApi.getAllNftsFromContract(data)
+}
+
 export {
   login,
   signMessage,
@@ -97,4 +101,6 @@ export {
   editProfile,
   uploadToIPFS,
   isLoggedIn,
+  getBlogFromContract,
+  getUserData
 };
