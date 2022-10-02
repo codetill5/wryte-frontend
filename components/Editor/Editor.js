@@ -20,7 +20,7 @@ const Editor = (props) => {
       console.log(err);
     }
   };
-
+  const data = props.data;
   let editorComponent;
   if (!editorTools) editorComponent = "Loading...";
   else {
@@ -30,23 +30,10 @@ const Editor = (props) => {
         tools={editorTools}
         placeholder={`Let's write an awesome Story`}
         handle
+        data={data}
       />
     );
   }
-
-  //   show data
-  //   data={{
-  //     time: 1664424971324,
-  //     blocks: [
-  //       {
-  //         id: "7VZW_us5v0",
-  //         type: "header",
-  //         data: { text: "great show", level: 2 },
-  //       },
-  //     ],
-  //     version: "2.25.0",
-
-  // }}
 
   useEffect(() => {
     const importConstants = async () => {
@@ -63,7 +50,7 @@ const Editor = (props) => {
       <input
         className="storyTitle"
         placeholder="Title"
-        value={title}
+        value={title ? title : props.title}
         onChange={(event) => setTitle(event.target.value)}
       />
 
