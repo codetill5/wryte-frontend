@@ -25,7 +25,7 @@ const Profile = () => {
       contract: keys.MINT_CONTRACT,
     };
     const response = await getBlogFromContract(data);
-    setBlog(response?.result)
+    setBlog(response?.result);
   };
 
   useEffect(() => {
@@ -38,8 +38,6 @@ const Profile = () => {
       getBlog();
     }
   }, [userdata]);
-
-  console.log(userdata)
 
   return (
     <>
@@ -65,12 +63,12 @@ const Profile = () => {
                   <div className="media-body">
                     <div className="author-info">
                       <h1 className="title">{userdata?.name}</h1>
-                      <span className="b3 subtitle">{userdata?.designation}</span>
+                      <span className="b3 subtitle">
+                        {userdata?.designation}
+                      </span>
                     </div>
                     <div className="content">
-                      <p className="b1 description">
-                      {userdata?.bio}
-                      </p>
+                      <p className="b1 description">{userdata?.bio}</p>
                       <ul className="social-share-transparent size-md authorSocialIcons">
                         <li>
                           <FaTwitter />
@@ -85,12 +83,16 @@ const Profile = () => {
                           <FaGlobeAmericas />
                         </li>
                       </ul>
+
                       <button
                         className="editBtn"
                         onClick={() => router.push("/profile/edit")}
                       >
                         Edit Profile
                       </button>
+
+                      {/* need to add logic for following  */}
+                      {/* <button className="editBtn">Follow</button> */}
                     </div>
                   </div>
                 </div>
@@ -99,8 +101,6 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      {/* <FaBeer /> */}
-
       <div className="axil-post-list-area axil-section-gap bg-color-white">
         <div className="container">
           <div className="row">
@@ -113,7 +113,7 @@ const Profile = () => {
               <PostContainerOne blog={blog} />
             </div>
             <div className="col-lg-4 col-xl-4 mt_md--40 mt_sm--40">
-              <Sidebar />
+              <Sidebar userdata={userdata} />
             </div>
           </div>
         </div>
