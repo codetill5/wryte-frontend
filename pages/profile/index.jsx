@@ -18,6 +18,7 @@ const Profile = () => {
   const router = useRouter();
   const [userdata, setUserData] = useState();
   const [blog, setBlog] = useState();
+  const [socialLink, setSocialLink] = useState([]);
 
   const getBlog = async () => {
     const data = {
@@ -31,6 +32,7 @@ const Profile = () => {
   useEffect(() => {
     const data = getUserData();
     setUserData(JSON.parse(data));
+    setSocialLink(userdata?.social);
   }, []);
 
   useEffect(() => {
@@ -70,20 +72,35 @@ const Profile = () => {
                     <div className="content">
                       <p className="b1 description">{userdata?.bio}</p>
                       <ul className="social-share-transparent size-md authorSocialIcons">
-                        <li>
-                          <FaTwitter />
-                        </li>
-                        <li>
-                          <FaTelegramPlane />
-                        </li>
-                        <li>
-                          <FaInstagram />
-                        </li>
-                        <li>
-                          <FaGlobeAmericas />
-                        </li>
+                        {socialLink?.twitter ? (
+                          <li href={socialLink?.twitter}>
+                            <FaTwitter />
+                          </li>
+                        ) : (
+                          ""
+                        )}
+                        {socialLink?.telegram ? (
+                          <li href={socialLink?.telegram}>
+                            <FaTelegramPlane />
+                          </li>
+                        ) : (
+                          ""
+                        )}
+                        {socialLink?.instagram ? (
+                          <li href={socialLink?.instagram}>
+                            <FaInstagram />
+                          </li>
+                        ) : (
+                          ""
+                        )}
+                        {socialLink?.web ? (
+                          <li href={socialLink?.web}>
+                            <FaGlobeAmericas />
+                          </li>
+                        ) : (
+                          ""
+                        )}
                       </ul>
-
                       <button
                         className="editBtn"
                         onClick={() => router.push("/profile/edit")}
