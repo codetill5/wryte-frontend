@@ -2,14 +2,15 @@ import React from "react";
 import Head from "next/head";
 
 const Seo = () => {
-  const seoTitle = "Wryte";
-  const seoDesc = "Decentralized Publishing platform";
+  const seoTitle = "Wryte | Decentralized Publishing platform";
+  const seoDesc =
+    "Wryte brings the power of web3 to your stories, making you the owner of your content";
   const url = "wryte.xyz";
-  const imgUrl = "https://wryte.xyz/assets/logo.png";
+  const imgUrl = "/assets/logo.png";
   return (
     <Head>
       <title>{seoTitle}</title>
-      <link rel="icon" href={"/assets/round.png"} />
+      <link rel="icon" href={"/round.png"} />
       <meta name="title" content={seoTitle} />
       <meta name="description" content={seoDesc} />
       <meta property="og:type" content="website" />

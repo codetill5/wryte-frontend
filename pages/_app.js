@@ -16,13 +16,12 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <>
       <Provider store={store}>
+        <Seo />
         <PersistGate loading={null} persistor={persistor}>
           <ColorSwitcher />
-          <Seo>
           <Layout>
             <Component {...pageProps} />
           </Layout>
-          </Seo>
         </PersistGate>
       </Provider>
     </>
