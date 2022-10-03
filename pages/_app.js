@@ -5,6 +5,7 @@ import { persistStore } from "redux-persist";
 
 import Layout from "../components/layout";
 import ColorSwitcher from "../components/ColorSwitcher";
+import Seo from "../components/Seo";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "../styles/style.scss";
@@ -17,9 +18,11 @@ const MyApp = ({ Component, pageProps }) => {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <ColorSwitcher />
+          <Seo>
           <Layout>
             <Component {...pageProps} />
           </Layout>
+          </Seo>
         </PersistGate>
       </Provider>
     </>
