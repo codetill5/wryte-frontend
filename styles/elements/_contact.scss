@@ -95,6 +95,26 @@ p.form-messege {
     width: 100%;
 }
 
+.profileShowContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.profileShowBg{
+    padding: 20px 27px;
+    border-radius: 100px;
+}
+
+.colorPicker{
+    height: 15px;
+    width: 15px;
+    border-radius: 2px;
+    margin-left: 200px;
+}
+
 @media screen and (max-width: '900px') {
     .col{
         width: unset !important;

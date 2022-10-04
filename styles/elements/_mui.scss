@@ -1,0 +1,20 @@
+@media (min-width: 600px) {
+  .MuiTab-root {
+    width: auto;
+    min-width: 140px !important;
+  }
+}
+
+
+.MuiAppBar-colorPrimary{
+    background-color: aliceblue !important;
+    color: #3858F6 !important;
+}
+
+.MuiTab-wrapper{
+    font-size: 14px !important;
+}
+
+.PrivateTabIndicator-colorSecondary-3{
+    background-color: #3858F6 !important;
+}

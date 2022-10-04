@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import Popup from "reactjs-popup";
 
+import TabsContainer from "../../components/TabsContainer";
 import { editProfile } from "../../helper";
 
 const EditForm = ({ userdata }) => {
@@ -10,6 +12,7 @@ const EditForm = ({ userdata }) => {
   const [twitterUsername, SetTwitterUsername] = useState();
   const [telegramUsername, setTelegramUsername] = useState();
   const [profileImg, setProfileImg] = useState();
+  const ref = useRef();
 
   const updateProfile = async () => {
     const data = {
@@ -24,6 +27,31 @@ const EditForm = ({ userdata }) => {
 
   return (
     <div className="axil-contact-form-area editProfileHeader">
+      <Popup
+        className="custom"
+        ref={ref}
+        open={true}
+        position="bottom center"
+        closeOnDocumentClick={false}
+        closeOnEscape={false}
+      >
+        <div className="closeIconContainer">
+          <img
+            src="/assets/icons/cross.svg"
+            alt="close"
+            className="closeIcon"
+          />
+        </div>
+        <div
+          className="popup"
+          id="popup_bid"
+          tabIndex={-1}
+          role="dialog"
+          aria-hidden="true"
+        >
+          <TabsContainer />
+        </div>
+      </Popup>
       <h2 className="title mb--10 editProfileHeader">Profile Settings</h2>
       <p className="b3 mb--30 editProfileHeader">
         You can update your profile details here
@@ -47,7 +75,11 @@ const EditForm = ({ userdata }) => {
           </div>
           <div className="form-group">
             <label htmlFor="contact-phone">Bio</label>
-            <textarea className="shortBioInput" required value={userdata?.bio} />
+            <textarea
+              className="shortBioInput"
+              required
+              value={userdata?.bio}
+            />
             <p className="inputOuterText">
               Your profile will be available on wryte.xyz/profile/[username]
             </p>
@@ -112,6 +144,7 @@ const EditForm = ({ userdata }) => {
             </button>
           </div>
         </div>
+
         <div className="col-12">
           <div className="form-group"></div>
         </div>

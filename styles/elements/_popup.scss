@@ -1,0 +1,112 @@
+.popup {
+  .modal-content {
+    border: solid 1px #e2eef1;
+    border-radius: 20px !important;
+    box-shadow: 0px 17px 13px 0px #192c4b05;
+  }
+  .close {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    box-shadow: 0px 17px 13px 0px #192c4b05;
+    outline: none;
+    border: solid 1px #e2eef1;
+    background-color: #fff;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+    &:hover {
+      background-color: #000;
+      border: solid 1px #000;
+    }
+  }
+}
+#popup_preview {
+  .modal-content {
+    max-width: 20rem;
+  }
+}
+
+.custom-content {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  right: 15px !important;
+  margin: 0.5rem !important;
+  transform: translate(-50%, -50%);
+  width: max-content !important;
+  border: solid 1px #000;
+  border-radius: 5px !important;
+  box-shadow: 0px 17px 13px 0px #192c4b05 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  width: auto !important;
+  pointer-events: auto !important;
+  background-color: #212121 !important;
+  background-clip: padding-box !important;
+  outline: 0 !important;
+  padding-right: 40px !important;
+  padding-bottom: 10px !important;
+  padding-left: 40px !important;
+  padding-top: 15px;
+  max-width: 500px;
+}
+
+.closeIconContainer {
+  position: relative;
+}
+.closeIcon {
+  width: 20px;
+  position: absolute;
+  right: -25px;
+  color: #212121 !important;
+  cursor: pointer;
+}
+
+.popup-arrow {
+  color: rgb(255, 255, 255);
+  display: none !important;
+}
+[role="tooltip"].popup-content {
+  width: 90% !important;
+  margin-left: 0px !important;
+  margin-right: 0 !important;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+[data-popup="tooltip"].popup-overlay {
+  background: rgba(0, 0, 0, 0.5) !important;
+  pointer-events: unset !important;
+}
+.popup_btn {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.social-content {
+  max-width: max-content !important;
+  padding: 20px !important;
+  position: absolute !important;
+  transform: none !important;
+  border: solid 1px #e2eef1;
+  border-radius: 20px !important;
+  background-color: #fff !important;
+  span {
+    color: #000;
+  }
+  i {
+    font-size: 20px;
+    color: #000;
+  }
+  &.more-content {
+    padding: 10px 20px !important;
+    i {
+      font-size: 20px;
+      color: #eb5757;
+    }
+  }
+}
