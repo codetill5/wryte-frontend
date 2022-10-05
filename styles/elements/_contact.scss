@@ -105,7 +105,17 @@ p.form-messege {
 
 .profileShowBg{
     padding: 20px 27px;
-    border-radius: 100px;
+    border-radius: 100%;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profileShowBg > img {
+    width: 100%;
+    object-fit: cover;
+    height: 125px;
 }
 
 .colorPicker{
@@ -113,6 +123,31 @@ p.form-messege {
     width: 15px;
     border-radius: 2px;
     margin-left: 200px;
+}
+
+.chooseAvatarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+   margin-top: 20px;
+}
+
+.chooseAvatar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+    background-color: #000;
+    border: 1px solid #e2eef1;
+}
+
+.chooseAvatar > img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
 }
 
 @media screen and (max-width: '900px') {

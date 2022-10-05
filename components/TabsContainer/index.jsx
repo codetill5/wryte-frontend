@@ -12,6 +12,7 @@ import { HexColorPicker } from "react-colorful";
 const TabsContainer = () => {
   const [value, setValue] = useState("1");
   const [color, setColor] = useState("#b32aa9");
+  const [image, setImage] = useState(1);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -22,6 +23,10 @@ const TabsContainer = () => {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const handleAvatar = (selectedImage) => {
+    setImage(selectedImage);
   };
 
   return (
@@ -38,12 +43,10 @@ const TabsContainer = () => {
         <TabPanel value="1">
           <div className="profileShowContainer">
             <div className="profileShowBg" style={{ background: color }}>
-              <Image
-                src="/assets/removebg.png"
+              <img
+                src={`/assets/avatars/${image}.png`}
                 alt="profileImg"
-                height={105}
-                width={105}
-                priority={true}
+               
               />
             </div>
             <Popper
@@ -66,6 +69,26 @@ const TabsContainer = () => {
                 onClick={handleClick}
               ></div>
             </Tooltip>
+            <div className="chooseAvatarContainer">
+              <div className="chooseAvatar" onClick={() => handleAvatar(1)}>
+                <img src="/assets/avatars/1.png" />
+              </div>
+              <div className="chooseAvatar" onClick={() => handleAvatar(2)}>
+                <img src="/assets/avatars/2.png" />
+              </div>
+              <div className="chooseAvatar" onClick={() => handleAvatar(3)}>
+                <img src="/assets/avatars/3.png" />
+              </div>
+              <div className="chooseAvatar" onClick={() => handleAvatar(4)}>
+                <img src="/assets/avatars/4.png" />
+              </div>
+              <div className="chooseAvatar" onClick={() => handleAvatar(5)}>
+                <img src="/assets/avatars/5.png" />
+              </div>
+              <div className="chooseAvatar" onClick={() => handleAvatar(6)}>
+                <img src="/assets/avatars/6.png" />
+              </div>
+            </div>
             <button className="editBtn">Save photo</button>
           </div>
         </TabPanel>
