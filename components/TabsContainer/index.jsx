@@ -13,6 +13,7 @@ const TabsContainer = () => {
   const [value, setValue] = useState("1");
   const [color, setColor] = useState("#b32aa9");
   const [image, setImage] = useState(1);
+  const [upload, setUpload] = useState();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -29,6 +30,7 @@ const TabsContainer = () => {
     setImage(selectedImage);
   };
 
+  const handleUpload = () => {};
   return (
     <div className="tabsContainer">
       <h4>Profile photo</h4>
@@ -43,11 +45,7 @@ const TabsContainer = () => {
         <TabPanel value="1">
           <div className="profileShowContainer">
             <div className="profileShowBg" style={{ background: color }}>
-              <img
-                src={`/assets/avatars/${image}.png`}
-                alt="profileImg"
-               
-              />
+              <img src={`/assets/avatars/${image}.png`} alt="profileImg" />
             </div>
             <Popper
               id={id}
@@ -89,10 +87,34 @@ const TabsContainer = () => {
                 <img src="/assets/avatars/6.png" />
               </div>
             </div>
-            <button className="editBtn">Save photo</button>
+            <button className="editBtn">Save avatar</button>
           </div>
         </TabPanel>
-        <TabPanel value="2">Avatar</TabPanel>
+        <TabPanel value="2">
+          <div className="profileShowContainer">
+            <div className="profileShowBg" style={{ background: color }}>
+              <img
+                src={upload ? URL.createObjectURL(upload) : null}
+                alt="profileImg"
+              />
+            </div>
+            <input
+              type="file"
+              id="actual-btn"
+              accept="image/*"
+              hidden
+              onChange={(e) => setUpload(e.target.files[0])}
+            />
+
+            <label
+              for="actual-btn"
+              className="editBtn"
+              style={{ textAlign: "center", cursor: "pointer" }}
+            >
+              Upload
+            </label>
+          </div>
+        </TabPanel>
         <TabPanel value="3">Pro Avatar</TabPanel>
       </TabContext>
     </div>
