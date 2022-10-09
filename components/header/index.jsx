@@ -214,7 +214,7 @@ const Header = () => {
                     )}
                   </li> */}
                   <li>
-                    <a href="https://waitlist.wryte.xyz/" target="_blank">
+                    <a href="https://waitlist.wryte.xyz/" target="_blank" rel="noreferrer">
                       <button className="connectBtn">Join Waitlist</button>
                     </a>
                   </li>

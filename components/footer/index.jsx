@@ -39,8 +39,8 @@ const FooterOne = () => {
                 <li>
                   <a
                     href="https://twitter.com/WryteXyz"
-                    rel="noopener"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <img src="/assets/icons/twitter.svg" />
                   </a>

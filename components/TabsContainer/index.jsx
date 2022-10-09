@@ -107,7 +107,7 @@ const TabsContainer = () => {
             />
 
             <label
-              for="actual-btn"
+              htmlFor="actual-btn"
               className="editBtn"
               style={{ textAlign: "center", cursor: "pointer" }}
             >
