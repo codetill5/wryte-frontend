@@ -9,7 +9,7 @@ const ColorSwitcher = () => {
     window.localStorage.setItem("color-mode", targetText);
   };
   useEffect(() => {
-    var colorModeStore = window.localStorage.getItem("color-mode") || "Light";
+    var colorModeStore = window.localStorage.getItem("color-mode") || "Dark";
     SetActiveClass(colorModeStore);
 
     if (colorModeStore === "Dark") {

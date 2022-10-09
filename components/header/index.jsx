@@ -119,7 +119,7 @@ const Header = () => {
                   )}
                 </form>
                 <div className="mobile-search-wrapper d-sm-none d-block">
-                  <button
+                  {/* <button
                     className="search-button-toggle"
                     onClick={toggleHandler}
                   >
@@ -128,7 +128,7 @@ const Header = () => {
                       alt="search"
                       style={{ height: "20px", width: "20px" }}
                     />
-                  </button>
+                  </button> */}
                   <form
                     className={`header-search-form ${
                       togglaClass ? "open" : ""
@@ -191,7 +191,7 @@ const Header = () => {
                   ) : (
                     ""
                   )}
-                  <li>
+                  {/* <li>
                     {!userData ? (
                       <button
                         className="connectBtn"
@@ -207,10 +207,17 @@ const Header = () => {
                         Disconnect
                       </button>
                     )}
+                  </li> */}
+                  <li>
+                  <button
+                        className="connectBtn"
+                      >
+                        Join Waitlist
+                      </button>
                   </li>
                 </ul>
 
-                <div className="hamburger-menu d-block d-xl-none">
+                {/* <div className="hamburger-menu d-block d-xl-none">
                   <div className="hamburger-inner">
                     <div className="icon" onClick={MobileShowHandler}>
                       <img
@@ -220,7 +227,7 @@ const Header = () => {
                       />
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

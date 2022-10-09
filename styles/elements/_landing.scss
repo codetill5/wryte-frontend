@@ -8,7 +8,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  // background-color: antiquewhite;
 }
 
 .landingContainer {
@@ -21,132 +20,203 @@
 .landingContent {
   width: 60%;
   margin-left: 20px;
-}
-
-.landingContent > h1 {
-  font-size: 80px;
-  font-weight: 700;
-  line-height: 60px;
-}
-
-.landingContent > p {
-  color: #fff !important;
-  font-weight: 300;
-  font-size: 20px;
-  width: 60%;
-  padding-top: 10px;
-  opacity: 0.9;
+  margin-top: -50px;
 }
 
 .landingImg {
-  width: 60%;
-}
-
-
-.introContainer{
-  width: 80%;
-  height: 80vh;
-  // background-color: cadetblue;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 100px;
-  background-color: #3858f6;
-  
-}
-.introContainer > h1{
-  font-size: 80px;
-  font-weight: 700;
-  line-height: 60px;
-}
-
-.introPara {
-  color: #fff !important;
-  font-size: 20px;
-  line-height: 10px !important;
+  width: 100%;
 }
 
 .commonbtn {
-  color: #3858f6;
+  color: #fff;
   border: none;
-  background-color: #fff;
+  background-color: #3858f6;
   border-radius: 20px;
   padding: 10px 20px;
   width: 120px;
   font-size: 14px;
   gap: 20px;
+  font-weight: 500;
+}
+
+.blueScreenBtn{
+  background-color: #fff;
+  color: #fff;
+}
+
+.heading{
+  font-size: 70px;
   font-weight: 700;
+  line-height: 90px;
+}
+
+.subHeading{
+  color: #fff !important;
+  font-weight: 300 !important;
+  font-size: 18px !important;
+  opacity: 0.9;
+}
+
+
+
+.editorImg{
+  width: 80%
+}
+
+.editorContainer{
+  background-color: #3858f6;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
   margin-top: 50px;
 }
 
-.mainContainer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #3858f6;
-}
-
-.mainContainerHodl{
-  height: 80vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #212121;
-}
-
-.holdContainer {
+.editorContent{
   width: 80%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 200px;
+  margin-left: 50px;
+
 }
 
-.landingHead{
-  font-size: 80px;
-  font-weight: 700;
-  line-height: 60px;
-  margin-bottom: 50px !important;
+.editorHeading{
+  width: 100%;
 }
 
-.holdContent{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-.holdContent > p {
+.editorSubHeading{
   color: #fff !important;
-  font-weight: 300;
+  line-height: 25px;
+  font-size: 16px;
 }
-.holdContainer > img {
-  transform: rotate(-20deg);
+
+.tipContainer{
+  height: 100vh;
+}
+
+.tipContent{
+  flex-direction: row-reverse;
+  margin-top: 50px;
+  // gap: 100px;
+}
+
+.tipPara{
+  margin-top: 50px !important;
+}
+
+.tipHeading{
+  font-size: 100px;
+  font-weight: 700;
+  margin-bottom: 20px !important;
+}
+
+.tipSubHeading {
+  margin-bottom: 30px !important;
+}
+
+.tipLandingContent{
+  width: 30%;
+  margin-top: 50px;
+}
+.tipImg{
+  width: 50%;
+}
+
+.earnContainer{
+  background-color: #3858f6;
+  height: 100vh;
+}
+.earnhSuperheading{
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+
+.listingContainer{
+  display: flex;
+  align-items: center;
+}
+.earnHeading{
+  font-size: 20px;
+  margin-bottom: 10px !important;
+  margin-left: 10px;
+}
+.earnSubHeading {
+  font-size: 15px;
+  color: #fff !important;
+  margin-bottom: 20px;
+  margin-left: 60px;
+}
+
+.earnImg{
+  width: 65%;
+  // margin-left: 100px;
 }
 
 .powerContainer{
-  text-align: center;  
-}
-
-.powerImgContainer > img {
-  width: 250px;
-}
-.powerImgContainer { 
+  background-color: #000;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  padding: 50px 0px;
 }
-.powerContainerHodl{
-  height: 30vh;
+
+@media #{$large-mobile} {
+  .landingContainer{
     width: 100%;
-    display: flex;
     flex-direction: column;
+  }
+  .outerContainer{
+    height: 100% ;
+    margin-top: 80px;
+  }
+  .landingContent{
+    width: 90%;
+    margin-left: unset;
+  }
+  .heading{
+    font-size: 50px;
+    line-height: 1.19;
+  }
+  .editorContainer{
+    // width: 100%;
+    height: 100%;
+    flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    background-color: #212121;
+  }
+  .editorImg{
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .editorContent{
+    width: 90%;
+    padding: 0 10px;
+    margin-bottom: 50px;
+  }
+  .tipContent{
+    margin-top: unset;
+  }
+
+  .tipContainer{
+    margin-top: unset;
+  }
+  .tipImg{
+    margin-bottom: 50px;
+  }
+  .tipSubHeading{
+    margin-bottom: 15px !important;
+  }
+
+  .tipPara{
+    margin-top: 30px !important;
+  }
+  .tipBtn{
+    margin-top: 20px;
+  }
+  .earnContent{
+    margin-top: 50px;
+  }
+  .earnImg{
+    margin-bottom: 50px;
+  }
 }
