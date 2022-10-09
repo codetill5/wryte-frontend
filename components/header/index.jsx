@@ -68,6 +68,12 @@ const Header = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (pathname !== "/") {
+      router.push("/");
+    }
+  }, [pathname]);
+
   return (
     <>
       <header className="header axil-header">
@@ -90,7 +96,6 @@ const Header = () => {
                 </Link>
               </div>
             </div>
-           
 
             <div className="col-xl-3 col-lg-8 col-md-8 col-sm-9 col-12">
               <div className="header-search text-end d-flex align-items-center">
@@ -112,9 +117,9 @@ const Header = () => {
                     </div>
                   ) : (
                     <div className="menuList">
-                    <Link href="/lightpaper" >
-                      <a>Litepaper</a>
-                    </Link>
+                      <Link href="/lightpaper">
+                        <a>Litepaper</a>
+                      </Link>
                     </div>
                   )}
                 </form>
@@ -209,11 +214,9 @@ const Header = () => {
                     )}
                   </li> */}
                   <li>
-                  <button
-                        className="connectBtn"
-                      >
-                        Join Waitlist
-                      </button>
+                    <a href="https://waitlist.wryte.xyz/" target="_blank">
+                      <button className="connectBtn">Join Waitlist</button>
+                    </a>
                   </li>
                 </ul>
 
